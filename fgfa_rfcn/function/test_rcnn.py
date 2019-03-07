@@ -80,7 +80,10 @@ def test_rcnn(cfg, dataset, image_set, root_path, dataset_path, motion_iou_path,
     test_datas = [TestLoader(x, cfg, batch_size=1, shuffle=shuffle, has_rpn=has_rpn) for x in roidbs]
 
     # load model
-    arg_params, aux_params = load_param(prefix, epoch, process=True)
+    prefix_ = os.path.join(cfg.TEST.MODEL_PATH, cfg.TRAIN.model_prefix)
+    print "config.TEST>MODEL_PATH"
+
+    arg_params, aux_params = load_param(prefix_, epoch, process=True)
 
     # create predictor
     feat_predictors = [get_predictor(feat_sym, feat_sym_instance, cfg, arg_params, aux_params, test_datas[i], [ctx[i]]) for i in range(gpu_num)]

@@ -151,11 +151,13 @@ config.TEST.max_per_image = 300
 #
 config.TEST.KEY_FRAME_INTERVAL = 9
 config.TEST.SEQ_NMS = False
-
+config.TEST.MODEL_PATH = ""
 
 # Test Model Epoch
 config.TEST.test_epoch = 0
 
+config.DEBUG = edict()
+config.DEBUG.inference = False
 
 def update_config(config_file):
     exp_config = None

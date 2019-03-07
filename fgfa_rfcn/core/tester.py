@@ -49,7 +49,8 @@ def im_proposal(predictor, data_batch, data_names, scales):
     data_dict_all = [dict(zip(data_names, data_batch.data[i])) for i in xrange(len(data_batch.data))]
     scores_all = []
     boxes_all = []
-
+    import ipdb
+    ipdb.set_trace()
     for output, data_dict, scale in zip(output_all, data_dict_all, scales):
         # drop the batch index
         boxes = output['rois_output'].asnumpy()[:, 1:]
